@@ -5,6 +5,12 @@
 // ⚠️ CAMBIA ESTE NÚMERO por el número real de WhatsApp (formato internacional, sin + ni espacios)
 const WHATSAPP_NUMBER = "523111234567";
 
+function formatDateDMY(value) {
+  if (!value) return "Por definir";
+  const [year, month, day] = value.split("-");
+  return `${day}/${month}/${year}`;
+}
+
 /* ---------- Init Lucide icons ---------- */
 if (window.lucide) {
   lucide.createIcons();
@@ -82,12 +88,8 @@ if (qGo) {
     const output = document.getElementById("q_out").value;
     const guests = document.getElementById("q_g").value;
     const room = document.getElementById("q_r").value;
-    const formatDate = (value) => {
-      if (!value) return "Por definir";
-      const [year, month, day] = value.split("-");
-      return `${day}/${month}/${year}`;
-    };
-    const msg = `Hola, me gustaría consultar disponibilidad en Hotel Aztlán:\n\nLlegada: ${formatDate(input)}\nSalida: ${formatDate(output)}\nHuéspedes: ${guests}\nHabitación: ${room}`;
+
+    const msg = `Hola, me gustaría consultar disponibilidad en Hotel Aztlán:\n\nLlegada: ${formatDateDMY(input)}\nSalida: ${formatDateDMY(output)}\nHuéspedes: ${guests}\nHabitación: ${room}`;
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
       "_blank"
@@ -113,7 +115,7 @@ if (bookForm) {
       return;
     }
 
-    const msg = `*Nueva reservación - Hotel Aztlán*\n\nNombre: ${name}\nTeléfono: ${phone}\nLlegada: ${input}\nSalida: ${output}\nHuéspedes: ${guests}\nHabitación: ${room}${
+    const msg = `*Nueva reservación - Hotel Aztlán*\n\nNombre: ${name}\nTeléfono: ${phone}\nLlegada: ${formatDateDMY(input)}\nSalida: ${formatDateDMY(output)}\nHuéspedes: ${guests}\nHabitación: ${room}${
       notes ? "\nNotas: " + notes : ""
     }`;
     window.open(
@@ -123,6 +125,28 @@ if (bookForm) {
   });
 }
 
+/* ---------- Desplegar tipos de montaje de Casa Ocampo ---------- */
+const eventsLayoutToggle = document.getElementById("eventsLayoutToggle");
+const eventsLayoutContent = document.getElementById("eventsLayoutContent");
+if (eventsLayoutToggle && eventsLayoutContent) {
+  eventsLayoutToggle.addEventListener("click", () => {
+    const isExpanded = eventsLayoutToggle.getAttribute("aria-expanded") === "true";
+    eventsLayoutToggle.setAttribute("aria-expanded", String(!isExpanded));
+    eventsLayoutContent.hidden = isExpanded;
+    eventsLayoutContent.closest(".events-layouts")?.classList.toggle("is-open", !isExpanded);
+  });
+}
+
+/* ---------- Banda continua de imágenes de Casa Ocampo ---------- */
+const eventsGalleryTrack = document.querySelector(".events-gallery-track");
+const eventsGalleryGroup = eventsGalleryTrack?.querySelector(".events-gallery-group");
+if (eventsGalleryTrack && eventsGalleryGroup && eventsGalleryGroup.children.length > 1) {
+  const eventsGalleryClone = eventsGalleryGroup.cloneNode(true);
+  eventsGalleryClone.setAttribute("aria-hidden", "true");
+  eventsGalleryClone.querySelectorAll("img").forEach((image) => image.setAttribute("alt", ""));
+  eventsGalleryTrack.appendChild(eventsGalleryClone);
+  eventsGalleryTrack.classList.add("is-looping");
+}
 /* ---------- Copiar dirección del hotel ---------- */
 const copyAddressButton = document.getElementById("copyAddress");
 if (copyAddressButton) {
