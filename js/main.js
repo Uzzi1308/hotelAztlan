@@ -223,13 +223,81 @@ if (historyPhoto) {
     }
   });
 }
-document.querySelectorAll(".gal figure img").forEach((img) => {
-  img.addEventListener("click", () => {
-    if (!lb || !lbImg) return;
-    lbImg.src = img.src;
-    lb.classList.add("on");
+/* ---------- Galerías por área de instalaciones ---------- */
+const installationViewer = document.getElementById("installationViewer");
+const installationViewerImage = document.getElementById("installationViewerImage");
+const installationViewerTitle = document.getElementById("installationViewerTitle");
+const installationViewerCaption = document.getElementById("installationViewerCaption");
+const installationThumbnails = document.getElementById("installationThumbnails");
+const installationViewerClose = installationViewer?.querySelector(".installation-viewer-close");
+const installationViewerPrev = installationViewer?.querySelector(".installation-viewer-prev");
+const installationViewerNext = installationViewer?.querySelector(".installation-viewer-next");
+let installationViewerOrigin = null;
+let installationViewerImages = [];
+let installationViewerIndex = 0;
+
+function showInstallationImage(index) {
+  if (!installationViewerImages.length) return;
+  installationViewerIndex = (index + installationViewerImages.length) % installationViewerImages.length;
+  const image = installationViewerImages[installationViewerIndex];
+  installationViewerImage.src = image.currentSrc || image.src;
+  installationViewerImage.alt = image.alt || installationViewerTitle.textContent || "Hotel Aztlán";
+  installationViewerCaption.textContent = image.alt || installationViewerTitle.textContent || "";
+  installationThumbnails.querySelectorAll(".installation-thumb").forEach((button, buttonIndex) => {
+    const active = buttonIndex === installationViewerIndex;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
+
+function openInstallationGallery(category) {
+  if (!installationViewer) return;
+  const cover = category.querySelector(":scope > img");
+  if (!cover) return;
+  installationViewerOrigin = category;
+  installationViewerImages = [cover, ...category.querySelectorAll(".gallery-source img")];
+  installationViewerIndex = 0;
+  installationViewerTitle.textContent = category.dataset.title || "Instalaciones";
+  installationThumbnails.replaceChildren();
+  const hasMultipleImages = installationViewerImages.length > 1;
+  installationViewerPrev.hidden = !hasMultipleImages;
+  installationViewerNext.hidden = !hasMultipleImages;
+
+  installationViewerImages.forEach((image, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "installation-thumb";
+    button.setAttribute("aria-label", `Ver imagen ${index + 1} de ${category.dataset.title || "esta área"}`);
+    button.setAttribute("aria-pressed", "false");
+    const thumbnail = document.createElement("img");
+    thumbnail.src = image.currentSrc || image.src;
+    thumbnail.alt = "";
+    thumbnail.loading = "lazy";
+    button.appendChild(thumbnail);
+    button.addEventListener("click", () => showInstallationImage(index));
+    installationThumbnails.appendChild(button);
+  });
+
+  showInstallationImage(0);
+  if (!installationViewer.open) installationViewer.showModal();
+}
+
+document.querySelectorAll(".gallery-category").forEach((category) => {
+  category.addEventListener("click", () => openInstallationGallery(category));
+  category.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openInstallationGallery(category);
+    }
   });
 });
+installationViewerClose?.addEventListener("click", () => installationViewer.close());
+installationViewerPrev?.addEventListener("click", () => showInstallationImage(installationViewerIndex - 1));
+installationViewerNext?.addEventListener("click", () => showInstallationImage(installationViewerIndex + 1));
+installationViewer?.addEventListener("click", (event) => {
+  if (event.target === installationViewer) installationViewer.close();
+});
+installationViewer?.addEventListener("close", () => installationViewerOrigin?.focus());
 if (lb) {
   lb.addEventListener("click", () => {
     lb.classList.remove("on", "history-on");

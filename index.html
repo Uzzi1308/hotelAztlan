@@ -78,23 +78,69 @@
 <section class="alt gallery-section" id="instalaciones"><div class="wrap">
   <div class="eyebrow">Nuestras</div><h2>Instalaciones</h2><div class="bar"></div>
   <div class="gal">
-    <figure><img src="images/instalaciones-lobby-gallery.webp" alt="Lobby" decoding="async" loading="lazy"></figure>
-    <figure><img src="images/instalaciones-habitacion-gallery.webp" alt="Habitación con desayuno" decoding="async" loading="lazy"></figure>
-    <figure><img src="images/instalaciones-bano-gallery.webp" alt="Baño" decoding="async" loading="lazy"></figure>
-    <figure><img src="images/instalaciones-estacionamiento-gallery.webp" alt="Estacionamiento" decoding="async" loading="lazy"></figure>
-    <figure><img src="images/instalaciones-terraza-gallery.webp" alt="Terraza del restaurante" decoding="async" loading="lazy"></figure>
+    <figure class="gallery-category" data-title="Lobby" role="button" tabindex="0" aria-label="Ver imágenes del Lobby">
+      <img src="images/instalaciones-lobby-gallery.webp" alt="Lobby" decoding="async" loading="lazy"><figcaption>Lobby</figcaption>
+      <div class="gallery-source" hidden><img src="images/lobby.webp" alt="Lobby del Hotel Aztlán"><img src="images/lobby2.webp" alt="Área de estar del lobby"></div>
+    </figure>
+    <figure class="gallery-category" data-title="Habitaciones" role="button" tabindex="0" aria-label="Ver imágenes de Habitaciones">
+      <img src="images/instalaciones-habitacion-gallery.webp" alt="Habitación con desayuno" decoding="async" loading="lazy"><figcaption>Habitaciones</figcaption>
+      <div class="gallery-source" hidden><img src="images/habitacion-sencilla.webp" alt="Habitación sencilla"><img src="images/habitacion-doble.webp" alt="Habitación doble"><img src="images/habitacion-triple.webp" alt="Habitación triple"><img src="images/habitacion-familiar.webp" alt="Habitación familiar"></div>
+    </figure>
+    <figure class="gallery-category" data-title="Estacionamiento" role="button" tabindex="0" aria-label="Ver imágenes del Estacionamiento">
+      <img src="images/instalaciones-estacionamiento-gallery.webp" alt="Estacionamiento" decoding="async" loading="lazy"><figcaption>Estacionamiento</figcaption>
+      <div class="gallery-source" hidden><img src="images/instalaciones-estacionamiento.webp" alt="Área de estacionamiento"></div>
+    </figure>
+    <figure class="gallery-category" data-title="Restaurante" role="button" tabindex="0" aria-label="Ver imágenes del Restaurante">
+      <img src="images/instalaciones-terraza-gallery.webp" alt="Terraza del restaurante" decoding="async" loading="lazy"><figcaption>Restaurante</figcaption>
+      <div class="gallery-source" hidden><img src="images/restaurante.webp" alt="Restaurante Trapiche de Ocampo"></div>
+    </figure>
+    <figure class="gallery-category" data-title="Varios" role="button" tabindex="0" aria-label="Ver otras imágenes del hotel">
+      <img src="images/instalaciones-bano-gallery.webp" alt="Baño del hotel" decoding="async" loading="lazy"><figcaption>Varios</figcaption>
+      <div class="gallery-source" hidden><img src="images/instalaciones-bano.webp" alt="Baño de una habitación"></div>
+    </figure>
   </div>
 </div></section>
+
+<dialog class="installation-viewer" id="installationViewer" aria-label="Galería de instalaciones">
+  <div class="installation-viewer-inner">
+    <button class="installation-viewer-close" type="button" aria-label="Cerrar galería"><i data-lucide="x"></i></button>
+    <h3 class="installation-viewer-title" id="installationViewerTitle"></h3>
+    <div class="installation-viewer-stage">
+      <button class="installation-viewer-arrow installation-viewer-prev" type="button" aria-label="Imagen anterior"><i data-lucide="chevron-left"></i></button>
+      <figure class="installation-viewer-main"><img id="installationViewerImage" alt=""><figcaption id="installationViewerCaption"></figcaption></figure>
+      <button class="installation-viewer-arrow installation-viewer-next" type="button" aria-label="Imagen siguiente"><i data-lucide="chevron-right"></i></button>
+    </div>
+    <div class="installation-thumbnails" id="installationThumbnails" aria-label="Más imágenes de esta área"></div>
+  </div>
+</dialog>
 
 <section id="servicios"><div class="wrap">
   <div class="eyebrow">Nuestros</div><h2>Servicios</h2><div class="bar"></div>
   <div class="svc">
-    <div class="card"><div class="ic"><i data-lucide="wifi"></i></div><h3>Wi‑Fi gratuito</h3><p>Conexión de alta velocidad en todas las áreas del hotel.</p></div>
-    <div class="card"><div class="ic"><i data-lucide="car"></i></div><h3>Estacionamiento</h3><p>Estacionamiento vigilado para huéspedes, sin costo adicional.</p></div>
-    <div class="card"><div class="ic"><i data-lucide="utensils"></i></div><h3>Restaurante</h3><p>Trapiche de Ocampo: cocina regional dentro del hotel.</p></div>
-    <div class="card"><div class="ic"><i data-lucide="concierge-bell"></i></div><h3>Recepción 24h</h3><p>Atención personalizada las 24 horas del día.</p></div>
-    <div class="card"><div class="ic"><i data-lucide="shirt"></i></div><h3>Lavandería</h3><p>Servicio de lavandería y planchado bajo solicitud.</p></div>
-    <div class="card"><div class="ic"><i data-lucide="shield-check"></i></div><h3>Seguridad</h3><p>Instalaciones seguras y monitoreadas.</p></div>
+    <article class="card">
+      <div class="service-media"><img src="images/habitacion-sencilla.webp" alt="Habitación del hotel con conexión Wi-Fi" loading="lazy" decoding="async"><div class="ic"><i data-lucide="wifi"></i></div></div>
+      <div class="service-copy"><h3>Wi‑Fi gratuito</h3><p>Conexión de alta velocidad en todas las áreas del hotel.</p></div>
+    </article>
+    <article class="card">
+      <div class="service-media"><img src="images/instalaciones-estacionamiento-gallery.webp" alt="Estacionamiento del Hotel Aztlán" loading="lazy" decoding="async"><div class="ic"><i data-lucide="car"></i></div></div>
+      <div class="service-copy"><h3>Estacionamiento</h3><p>Estacionamiento vigilado para huéspedes, sin costo adicional.</p></div>
+    </article>
+    <article class="card">
+      <div class="service-media"><img src="images/restaurante.webp" alt="Restaurante Trapiche de Ocampo" loading="lazy" decoding="async"><div class="ic"><i data-lucide="utensils"></i></div></div>
+      <div class="service-copy"><h3>Restaurante</h3><p>Trapiche de Ocampo: cocina regional dentro del hotel.</p></div>
+    </article>
+    <article class="card">
+      <div class="service-media"><img src="images/instalaciones-lobby-gallery.webp" alt="Lobby y recepción del Hotel Aztlán" loading="lazy" decoding="async"><div class="ic"><i data-lucide="concierge-bell"></i></div></div>
+      <div class="service-copy"><h3>Recepción 24h</h3><p>Atención personalizada las 24 horas del día.</p></div>
+    </article>
+    <article class="card">
+      <div class="service-media"><img src="images/instalaciones-habitacion-gallery.webp" alt="Habitación del hotel" loading="lazy" decoding="async"><div class="ic"><i data-lucide="shirt"></i></div></div>
+      <div class="service-copy"><h3>Lavandería</h3><p>Servicio de lavandería y planchado bajo solicitud.</p></div>
+    </article>
+    <article class="card">
+      <div class="service-media"><img src="images/hero-fachada.webp" alt="Exterior del Hotel Aztlán" loading="lazy" decoding="async"><div class="ic"><i data-lucide="shield-check"></i></div></div>
+      <div class="service-copy"><h3>Seguridad</h3><p>Instalaciones seguras y monitoreadas.</p></div>
+    </article>
   </div>
 </div></section>
 
