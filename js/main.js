@@ -144,6 +144,7 @@ if (eventsGalleryTrack && eventsGalleryGroup && eventsGalleryGroup.children.leng
   const eventsGalleryClone = eventsGalleryGroup.cloneNode(true);
   eventsGalleryClone.setAttribute("aria-hidden", "true");
   eventsGalleryClone.querySelectorAll("img").forEach((image) => image.setAttribute("alt", ""));
+  eventsGalleryClone.querySelectorAll("figure").forEach((figure) => figure.setAttribute("tabindex", "-1"));
   eventsGalleryTrack.appendChild(eventsGalleryClone);
   eventsGalleryTrack.classList.add("is-looping");
 }
@@ -247,11 +248,31 @@ if (historyPhoto) {
     }
   });
 }
+const eventsGalleryFigures = document.querySelectorAll(".events-gallery-group:not([aria-hidden='true']) figure");
+eventsGalleryFigures.forEach((figure) => {
+  const image = figure.querySelector("img");
+  if (!image) return;
+  figure.setAttribute("role", "button");
+  figure.setAttribute("tabindex", "0");
+  figure.setAttribute("aria-label", `Ampliar: ${image.alt}`);
+  const openImage = () => {
+    if (!lb || !lbImg) return;
+    lbImg.src = image.currentSrc || image.src;
+    lbImg.alt = image.alt;
+    lb.classList.add("on");
+  };
+  figure.addEventListener("click", openImage);
+  figure.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openImage();
+    }
+  });
+});
 /* ---------- Galerías por área de instalaciones ---------- */
 const installationViewer = document.getElementById("installationViewer");
 const installationViewerImage = document.getElementById("installationViewerImage");
 const installationViewerTitle = document.getElementById("installationViewerTitle");
-const installationViewerCaption = document.getElementById("installationViewerCaption");
 const installationThumbnails = document.getElementById("installationThumbnails");
 const installationViewerClose = installationViewer?.querySelector(".installation-viewer-close");
 const installationViewerPrev = installationViewer?.querySelector(".installation-viewer-prev");
@@ -266,7 +287,6 @@ function showInstallationImage(index) {
   const image = installationViewerImages[installationViewerIndex];
   installationViewerImage.src = image.currentSrc || image.src;
   installationViewerImage.alt = image.alt || installationViewerTitle.textContent || "Hotel Aztlán";
-  installationViewerCaption.textContent = image.alt || installationViewerTitle.textContent || "";
   installationThumbnails.querySelectorAll(".installation-thumb").forEach((button, buttonIndex) => {
     const active = buttonIndex === installationViewerIndex;
     button.classList.toggle("is-active", active);
@@ -326,6 +346,12 @@ if (lb) {
   lb.addEventListener("click", () => {
     lb.classList.remove("on", "history-on");
     if (lbImg) lbImg.src = "";
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lb.classList.contains("on")) {
+      lb.classList.remove("on", "history-on");
+      if (lbImg) lbImg.src = "";
+    }
   });
 }
 /* ---------- Reveal on scroll (rv class) ---------- */
