@@ -125,18 +125,6 @@ if (bookForm) {
   });
 }
 
-/* ---------- Desplegar tipos de montaje de Casa Ocampo ---------- */
-const eventsLayoutToggle = document.getElementById("eventsLayoutToggle");
-const eventsLayoutContent = document.getElementById("eventsLayoutContent");
-if (eventsLayoutToggle && eventsLayoutContent) {
-  eventsLayoutToggle.addEventListener("click", () => {
-    const isExpanded = eventsLayoutToggle.getAttribute("aria-expanded") === "true";
-    eventsLayoutToggle.setAttribute("aria-expanded", String(!isExpanded));
-    eventsLayoutContent.hidden = isExpanded;
-    eventsLayoutContent.closest(".events-layouts")?.classList.toggle("is-open", !isExpanded);
-  });
-}
-
 /* ---------- Banda continua de imágenes de Casa Ocampo ---------- */
 const eventsGalleryTrack = document.querySelector(".events-gallery-track");
 const eventsGalleryGroup = eventsGalleryTrack?.querySelector(".events-gallery-group");

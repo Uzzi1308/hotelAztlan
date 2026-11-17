@@ -22,15 +22,16 @@
   <button id="burger" aria-label="Menú"><i data-lucide="menu"></i></button>
   <nav><ul id="menu">
     <li><a href="#nosotros">Nosotros</a></li><li><a href="#habitaciones">Habitaciones</a></li>
-    <li><a href="#instalaciones">Instalaciones</a></li><li><a href="#restaurante">Restaurante</a></li>
-    <li><a href="#eventos">Eventos</a></li><li><a href="#servicios">Servicios</a></li>
+    <li><a href="#instalaciones">Instalaciones</a></li><li><a href="#servicios">Servicios</a></li>
+    <li><a href="#restaurante">Restaurante</a></li><li><a href="#eventos">Eventos</a></li>
+    <li><a href="#historia">Historia</a></li>
     <li><a href="#ubicacion">Ubicación</a></li><li><a href="#contacto">Contacto</a></li>
-    <li><a class="btn wa" href="#reservar" style="padding:9px 18px">Reservar</a></li>
+    <li><a class="btn wa" data-wa="Hola, me gustaría reservar una habitación en Hotel Aztlán. ¿Me pueden ayudar con disponibilidad?" href="#" style="padding:9px 18px"><i data-lucide="message-circle"></i> Reservar</a></li>
   </ul></nav>
 </div></header>
 
 <section class="hero" id="inicio">
-  <img src="images/lobby.png" alt="Fachada del Hotel Aztlán al atardecer">
+  <img src="images/mural-xalisco.webp" alt="Mural decorativo del Hotel Aztlán">
   <div class="wrap">
     <div class="script">Como estar en casa</div>
     <h1>HOTEL AZTLÁN</h1>
@@ -52,7 +53,7 @@
 
 
 <section id="nosotros" class="welcome-section">
-  <div class="welcome-photo photo"><img src="images/lobby.png" alt="Lobby del Hotel Aztlán" loading="lazy"></div>
+  <div class="welcome-photo photo"><img src="images/mural-xalisco.webp" alt="Mural decorativo del Hotel Aztlán" loading="lazy" decoding="async"></div>
   <div class="wrap welcome-grid">
     <div class="welcome-intro">
       <div class="eyebrow">Bienvenidos a</div><h2>Hotel Aztlán</h2><div class="bar"></div>
@@ -120,27 +121,27 @@
   <div class="eyebrow">Nuestros</div><h2>Servicios</h2><div class="bar"></div>
   <div class="svc">
     <article class="card">
-      <div class="service-media"><img src="images/ins_habitaciones2.webp" alt="Habitación sencilla del Hotel Aztlán" loading="lazy" decoding="async"><div class="ic"><i data-lucide="car-front"></i></div></div>
+      <div class="service-media"><img src="images/taxi.webp" alt="Taxi para traslados seguros de los huéspedes" loading="lazy" decoding="async"><div class="ic"><i data-lucide="car-front"></i></div></div>
       <div class="service-copy"><h3>Sitio de taxi seguro</h3><p>Contamos con un sitio de taxi seguro, con personal de confianza, para que te traslades con tranquilidad.</p></div>
     </article>
     <article class="card">
-      <div class="service-media"><img src="images/ins_estacionamiento1.webp" alt="Estacionamiento del Hotel Aztlán" loading="lazy" decoding="async"><div class="ic"><i data-lucide="wifi"></i></div></div>
+      <div class="service-media"><img src="images/wifi.webp" alt="Conexión Wi-Fi de alta velocidad" loading="lazy" decoding="async"><div class="ic"><i data-lucide="wifi"></i></div></div>
       <div class="service-copy"><h3>Internet alta velocidad</h3><p>Disfruta de conexión Wi‑Fi de alta velocidad y Smart TV en todas nuestras habitaciones.</p></div>
     </article>
     <article class="card">
-      <div class="service-media"><img src="images/ins_restaurante2.webp" alt="Restaurante Trapiche de Ocampo" loading="lazy" decoding="async"><div class="ic"><i data-lucide="tv"></i></div></div>
+      <div class="service-media"><img src="images/smart.webp" alt="Smart TV en una habitación del hotel" loading="lazy" decoding="async"><div class="ic"><i data-lucide="tv"></i></div></div>
       <div class="service-copy"><h3>Smart TV con +80 canales</h3><p>Variedad de canales para que disfrutes de tu contenido favorito durante tu estancia.</p></div>
     </article>
     <article class="card">
-      <div class="service-media"><img src="images/ins_lobby1.webp" alt="Lobby y recepción del Hotel Aztlán" loading="lazy" decoding="async"><div class="ic"><i data-lucide="paw-print"></i></div></div>
+      <div class="service-media"><img src="images/pet.webp" alt="Mascota bienvenida en el hotel" loading="lazy" decoding="async"><div class="ic"><i data-lucide="paw-print"></i></div></div>
       <div class="service-copy"><h3>Pet friendly</h3><p>Tu mascota también es bienvenida. Contamos con espacios y un ambiente cómodo para su estancia.</p></div>
     </article>
     <article class="card">
-      <div class="service-media"><img src="images/ins_habitaciones1.webp" alt="Habitación del hotel" loading="lazy" decoding="async"><div class="ic"><i data-lucide="bus-front"></i></div></div>
+      <div class="service-media"><img src="images/recorridos.webp" alt="Recorridos turísticos por la región" loading="lazy" decoding="async"><div class="ic"><i data-lucide="bus-front"></i></div></div>
       <div class="service-copy"><h3>Recorridos turísticos</h3><p>Descubre los principales atractivos de la región con nuestros recorridos turísticos guiados.</p></div>
     </article>
     <article class="card">
-      <div class="service-media"><img src="images/hero-fachada.webp" alt="Exterior del Hotel Aztlán" loading="lazy" decoding="async"><div class="ic"><i data-lucide="plane"></i></div></div>
+      <div class="service-media"><img src="images/traslado.webp" alt="Servicio de traslado entre aeropuerto y hotel" loading="lazy" decoding="async"><div class="ic"><i data-lucide="plane"></i></div></div>
       <div class="service-copy"><h3>Traslado a aeropuerto-hotel</h3><p>Servicio de transporte cómodo y seguro entre el aeropuerto y el hotel.</p></div>
     </article>
   </div>
@@ -177,14 +178,13 @@
     <div class="events-hero">
       <div class="events-intro">
         <img class="casa-ocampo-logo" src="images/logo-casa-ocampo.webp" alt="Casa Ocampo, Hacienda Boutique Eventos" loading="lazy">
-        <div class="eyebrow">Ex Hacienda «El Molino de Ocampo»</div>
         <h2>Jardín para eventos</h2>
         <div class="bar"></div>
         <p class="lead">Un espacio que busca resaltar la elegancia y el buen gusto dentro de un ambiente cargado de historia.</p>
         <p class="events-description">Con dos terrazas y un salón de usos múltiples, Casa Ocampo recibe desde una cena íntima para dos hasta celebraciones de hasta 250 personas: desayunos, comidas, cenas y eventos institucionales, empresariales o familiares.</p>
         <div class="events-actions">
           <a class="btn events-cta" data-wa="Hola, me interesa organizar un evento en Casa Ocampo. Quiero conocer disponibilidad y cotización." href="#"><i data-lucide="message-circle"></i> Consultar por WhatsApp</a>
-          <button class="events-layout-toggle" id="eventsLayoutToggle" type="button" aria-expanded="false" aria-controls="eventsLayoutContent"><span>Tipos de montajes</span><i data-lucide="chevron-down"></i></button>
+          <a class="btn events-website-link" aria-disabled="true" title="Enlace próximamente"><i data-lucide="external-link"></i> Sitio web próximamente</a>
         </div>
       </div>
     </div>
@@ -192,44 +192,21 @@
     <div class="events-gallery" aria-label="Galería de Casa Ocampo">
       <div class="events-gallery-track">
         <div class="events-gallery-group">
-          <figure><img src="images/ins_restaurante1.webp" alt="Vista amplia de un espacio para eventos al aire libre" loading="lazy" decoding="async"></figure>
-          <figure><img src="images/hero-fachada.webp" alt="Acceso y fachada del lugar" loading="lazy" decoding="async"></figure>
-          <figure><img src="images/ins_lobby1.webp" alt="Detalle de un espacio interior para reuniones" loading="lazy" decoding="async"></figure>
-          <figure><img src="images/ins_estacionamiento1.webp" alt="Vista exterior de las instalaciones" loading="lazy" decoding="async"></figure>
-          <figure><img src="images/ins_restaurante2.webp" alt="Espacio para convivir y celebrar" loading="lazy" decoding="async"></figure>
-          <figure><img src="images/ins_habitaciones1.webp" alt="Detalle de un espacio del hotel" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo1.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo2.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo3.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo5.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo6.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo7.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo8.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo9.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo10.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/ocampo11.webp" alt="Casa Ocampo: jardín y espacios para eventos" loading="lazy" decoding="async"></figure>
         </div>
       </div>
     </div>
 
-    <div class="events-layouts">
-
-      <div class="events-layout-content" id="eventsLayoutContent" hidden>
-        <p class="events-layout-note">El espacio se adapta a distintos formatos. La capacidad es aproximada y puede variar según el área y el montaje solicitado.</p>
-        <div class="events-layout-grid">
-          <article class="event-layout-card"><i data-lucide="utensils"></i><h4>Banquete</h4><p><strong>250</strong><span>personas</span></p></article>
-          <article class="event-layout-card"><i data-lucide="wine"></i><h4>Cóctel</h4><p><strong>200</strong><span>personas</span></p></article>
-          <article class="event-layout-card"><i data-lucide="presentation"></i><h4>Auditorio</h4><p><strong>100</strong><span>personas</span></p></article>
-          <article class="event-layout-card"><i data-lucide="school"></i><h4>Escuela</h4><p><strong>50</strong><span>personas</span></p></article>
-          <article class="event-layout-card"><i data-lucide="layout-panel-top"></i><h4>En U</h4><p><strong>50</strong><span>personas</span></p></article>
-          <article class="event-layout-card"><i data-lucide="rectangle-horizontal"></i><h4>Imperial</h4><p><strong>45</strong><span>personas</span></p></article>
-        </div>
-
-        <div class="events-extras">
-          <div class="events-section-heading">
-            <div class="eyebrow">Hazlo a tu manera</div>
-            <h3>Servicios complementarios</h3>
-          </div>
-          <div class="events-extra-grid">
-            <div class="event-extra"><i data-lucide="utensils"></i><span>Catering</span></div>
-            <div class="event-extra"><i data-lucide="coffee"></i><span>Coffee break</span></div>
-            <div class="event-extra"><i data-lucide="armchair"></i><span>Mobiliario</span><small>Mesas y sillas</small></div>
-            <div class="event-extra"><i data-lucide="bed-double"></i><span>Hospedaje</span><small>Tarifa preferencial en Hotel Aztlán</small></div>
-            <div class="event-extra"><i data-lucide="chef-hat"></i><span>Servicio de alimentos</span><small>Para las actividades y festejos</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -255,6 +232,39 @@
     <div class="full"><label>Notas (opcional)</label><textarea id="b_notes" rows="3"></textarea></div>
     <div class="full"><button type="submit" class="btn wa" style="width:100%;justify-content:center"><i data-lucide="message-circle"></i> Enviar por WhatsApp</button></div>
   </form>
+</div></section>
+
+<section class="location-section" id="ubicacion"><div class="wrap">
+  <div class="eyebrow">Cómo llegar</div><h2>Ubicación</h2><div class="bar"></div>
+  <p class="lead">Visítanos en el centro de Xalisco, Nayarit. Consulta el mapa y encuentra la mejor ruta para llegar al hotel.</p>
+  <div class="location-grid">
+    <div class="location-map">
+      <iframe title="Mapa de ubicación del Hotel Aztlán en Xalisco" src="https://www.google.com/maps?q=Hotel+Aztlan,+Hidalgo+88,+Xalisco,+Nayarit&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="location-details">
+      <div class="eyebrow">Te esperamos</div>
+      <h3>Hotel Aztlán Boutique Urbano</h3>
+      <address class="location-address">Hidalgo #88, Col. Centro,<br>C.P. 63780, Xalisco, Nayarit, México</address>
+      <div class="location-actions">
+        <a class="btn location-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Aztlan,+Hidalgo+88,+Centro,+63780+Xalisco,+Nayarit,+Mexico" target="_blank" rel="noopener noreferrer"><i data-lucide="map"></i> Ver en Google Maps</a>
+        <button class="btn location-copy" id="copyAddress" type="button" data-address="Hidalgo #88, Col. Centro, C.P. 63780, Xalisco, Nayarit, México"><i data-lucide="copy"></i><span>Copiar dirección</span></button>
+      </div>
+      <p class="sr-only" id="copyAddressStatus" aria-live="polite"></p>
+      <div class="location-nearby" aria-label="Lugares cercanos al hotel">
+        <h4>A pocos minutos</h4>
+        <div class="location-near-grid">
+          <div class="location-near-item"><i data-lucide="map-pin"></i><span>Puntos de interés</span></div>
+          <div class="location-near-item"><i data-lucide="shopping-bag"></i><span>Macro plazas comerciales</span></div>
+          <div class="location-near-item"><i data-lucide="plane"></i><span>Aeropuerto</span></div>
+          <div class="location-near-item"><i data-lucide="utensils"></i><span>Restaurantes emblemáticos</span></div>
+          <div class="location-near-item"><i data-lucide="bus-front"></i><span>Central camionera</span></div>
+          <div class="location-near-item"><i data-lucide="landmark"></i><span>Monumentos históricos</span></div>
+          <div class="location-near-item"><i data-lucide="trees"></i><span>Ecoturismo</span></div>
+          <div class="location-near-item"><i data-lucide="building-2"></i><span>Centro histórico de Tepic</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div></section>
 
 <section id="contacto"><div class="wrap">
