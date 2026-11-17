@@ -270,7 +270,7 @@ nav ul a:not(.btn):after { background: var(--gold); }
 .hero { min-height: min(780px, 84vh); min-height: min(780px, 84svh); background: #2f1721; }
 .hero:before { background: rgba(40, 12, 24, .48); }
 .hero .wrap { max-width: 1200px; padding-bottom: clamp(76px, 11vh, 130px); }
-.hero .script { color: #e8c28f; font-size: clamp(1.8rem, 5vw, 2.8rem); }
+.hero .script { color: #e8c28f; font-size: clamp(2.1rem, 5.5vw, 3.5rem); }
 .hero h1 { max-width: 800px; font-size: clamp(2.8rem, 8vw, 6.2rem); line-height: .98; letter-spacing: -.055em; }
 .hero p { max-width: 620px; margin: 22px 0 30px; color: rgba(255,248,237,.9); font-size: clamp(1rem, 1.5vw, 1.15rem); }
 .scroll { right: max(28px, calc((100vw - 1144px)/2)); }
@@ -1069,4 +1069,43 @@ footer { padding: 58px 0 22px; text-align: left; }
 @media(max-width:480px) {
   .footer-bottom { flex-direction: column; text-align: center; }
   .footer-nav { gap: 10px 18px; }
+}
+
+/* Etiquetas de amenidades y tarjetas de misión/visión */
+.chips { justify-content: center; }
+.chips span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  cursor: default;
+  transition: color .22s ease, background .22s ease, border-color .22s ease, transform .22s ease;
+}
+.chips span *, .welcome-grid > .card:nth-child(2) *, .welcome-grid > .card:nth-child(3) * { cursor: default; }
+.chips span svg { width: 17px; height: 17px; color: var(--gold-ink); transition: color .22s ease, transform .22s ease; }
+.welcome-grid > .card:nth-child(2),
+.welcome-grid > .card:nth-child(3) {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--line);
+  cursor: default;
+  transition: transform .28s ease;
+}
+.welcome-grid > .card:nth-child(2)::before,
+.welcome-grid > .card:nth-child(3)::before {
+  content: none;
+}
+@media(hover:hover) {
+  .chips span:hover { transform: translateY(-4px); border-color: var(--line); background: var(--card); color: inherit; box-shadow: none; }
+  .welcome-grid > .card:nth-child(2):hover,
+  .welcome-grid > .card:nth-child(3):hover { transform: translateY(-6px); border-color: var(--line); box-shadow: none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .chips span, .chips span svg, .welcome-grid > .card:nth-child(2), .welcome-grid > .card:nth-child(3),
+  .welcome-grid > .card:nth-child(2)::before, .welcome-grid > .card:nth-child(3)::before { transition: none; }
+}
+@media(hover:hover) {
+  .rooms .room { transition: transform .55s cubic-bezier(.22, 1, .36, 1); will-change: transform; }
+  .rooms .room:hover { transform: translateY(-18px); box-shadow: none; }
 }
